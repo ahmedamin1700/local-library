@@ -8,7 +8,7 @@ exports.genre_list = function(req, res, next) {
         .sort([['name', 'ascending']])
         .exec(function(err, list_genre){
             if (err) { return next(err); }
-            res.render('genre_list', {title: 'Genre List', genre_list: list_genre});
+            res.render('list/genre', {title: 'Genre List', genre_list: list_genre});
         });
 };
 
@@ -32,7 +32,7 @@ exports.genre_detail = function(req, res, next) {
             return next(err);
         }
         // seccessfull 
-        res.render('genre_detail',
+        res.render('detail/genre',
         {
             title      : 'Genre Detail',
             genre      : results.genre,

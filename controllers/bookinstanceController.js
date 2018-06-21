@@ -6,7 +6,7 @@ exports.bookinstance_list = function(req, res, next) {
         .populate('book')
         .exec(function(err, list_bookinstance) {
             if (err) { return next(err); }
-            res.render('bookinstance_list', {title: 'Book Instance List', bookinstance_list: list_bookinstance});
+            res.render('list/bookinstance', {title: 'Book Instance List', bookinstance_list: list_bookinstance});
         });
 };
 
@@ -23,7 +23,7 @@ exports.bookinstance_detail = function(req, res, next) {
           return next(err);
         }
       // Successful, so render.
-      res.render('bookinstance_detail', { title: 'Book:', bookinstance:  bookinstance});
+      res.render('detail/bookinstance', { title: 'Book:', bookinstance:  bookinstance});
     })
 
 };
