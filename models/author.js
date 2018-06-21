@@ -36,15 +36,21 @@ AuthorSchema
 });
 
 AuthorSchema
-.virtual('date_of_birth_formatted')
+.virtual('date_of_birth_formated')
 .get(function(){
     return this.date_of_birth ? moment(this.date_of_birth).format('DD-MM-YYYY') : '';
 });
 
 AuthorSchema
-.virtual('date_of_death_formatted')
+.virtual('date_of_death_formated')
 .get(function(){
     return this.date_of_death ? moment(this.date_of_death).format('DD-MM-YYYY') : '';
+});
+
+AuthorSchema
+.virtual('lifespan')
+.get(function(){
+    return this.date_of_birth_formated + ' - ' + this.date_of_death_formated ;
 });
 
 // export model
